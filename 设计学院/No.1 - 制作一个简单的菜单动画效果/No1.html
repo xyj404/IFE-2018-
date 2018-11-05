@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            width: 100%;
+        }
+        .contentWrap {
+            /*display: inline-block;*/
+            margin: 0 auto;
+            text-align: center;
+        }
+        .content {
+            font-size: 20px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            transition: all 0.5s;
+            /*overflow: hidden;*/
+            cursor: pointer;
+        }
+        .content:hover {
+            color: cornflowerblue;
+        }
+        .divider {
+            height: 2px;
+            /*width: 100%;*/
+            background-color: brown;
+            position: absolute;
+            margin-top: 3px;
+            transition: all 0.5s ease-out;
+            left: 51%;
+            right: 51%;
+        }
+        .content:hover .divider {
+            left: 0;
+            right: 0;
+            background-color: cornflowerblue;
+        }
+        .btn {
+            margin: 20px;
+            font-size: 18px;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div class="contentWrap">
+    <a class="content">前端学院<div class="divider"></div>
+    </a><br/>
+
+    <button class="btn" onclick="changeBeforeDom()">切换样式</button>
+</div>
+</body>
+<script>
+    let flag = true;
+    let beforeDom = document.querySelectorAll('.divider')[0];
+    let dom = document.querySelectorAll('.content')[0];
+    function changeBeforeDom() {
+        console.log(beforeDom);
+        if (flag) {
+            beforeDom.style.left = '0px';
+            beforeDom.style.right = '0px';
+            beforeDom.style.backgroundColor = 'cornflowerblue';
+            dom.style.color = 'cornflowerblue';
+            flag = !flag;
+        } else {
+            beforeDom.style.left = '51%';
+            beforeDom.style.right = '51%';
+            beforeDom.style.backgroundColor = 'brown';
+            dom.style.color = 'brown';
+            flag = !flag;
+        }
+    }
+</script>
+</html>
