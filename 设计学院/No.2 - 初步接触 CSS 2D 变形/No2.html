@@ -12,6 +12,7 @@
             height: 100px;
             border: 1px solid #eeeeee;
             background-color: #f4f4f4;
+            transition: all 0.5s ease-out;
         }
         .translate {
             transform: translate(10px, 20px);
@@ -22,16 +23,28 @@
         .compress {
             transform: scale(0.5, 1);
         }
+        .compress:hover {
+            transform: scale(-0.5, 1);
+        }
         .skew {
             transform: skewX(20deg);
+        }
+        .skew:hover {
+            transform: skewX(30deg);
         }
         .skewAndRotate {
             transform: skewX(20deg) rotate(30deg);
         }
+        .normal {
+            transition: all 0.5s ease-out;
+        }
+        .normal:hover {
+            transform: scaleX(-1);
+        }
     </style>
 </head>
 <body>
-<div class="box">asdfsdf</div>
+<div class="box normal">asdfsdf</div>
 <div class="box skew">sdfsdf</div>
 <div class="box compress">sdsdf</div>
 <div class="box rotate">sdfsdf</div>
