@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .container {
+        position: relative;
+        min-height: 800px;
+        perspective: 1000px;
+    }
+    .wrapper {
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        transition: all 1s;
+        transform-style: preserve-3d;
+    }
+    .side {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: deepskyblue;
+        opacity: 0.5;
+        color: #f3b32e;
+        font-size: 35px;
+        text-align: center;
+        line-height: 200px;
+        border: 2px solid #5D94FF;
+    }
+    .side:nth-child(1) {transform: translateZ(100px) }
+    .side:nth-child(2) {transform: rotateY(90deg) translateZ(100px) }
+    .side:nth-child(3) {transform: rotateX(90deg) translateZ(100px) }
+    .side:nth-child(4) {transform: rotateY(-90deg) translateZ(100px) }
+    .side:nth-child(5) {transform: rotateX(-90deg) translateZ(100px) }
+    .side:nth-child(6) {transform: rotateY(180deg) translateZ(100px) }
+    .trans_box{
+        width: 400px;
+        margin: 20px;
+        overflow: hidden;
+    }
+    .trans_image_box {
+        width: 2000px;
+        height: 300px;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+    }
+    .trans_image {
+        width: 400px;
+        float: left;
+    }
+    .trans_image_trigger {
+        padding-top: 10px;
+        text-align: center;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="side">1</div>
+        <div class="side">2</div>
+        <div class="side">3</div>
+        <div class="side">4</div>
+        <div class="side">5</div>
+        <div class="side">6</div>
+    </div>
+</div>
+<div class="trans_box">
+    <div id="transImageBox" class="trans_image_box">
+        <img class="trans_image" src="../image/11.jpg" />
+        <img class="trans_image" src="../image/11.jpg" />
+        <img class="trans_image" src="../image/11.jpg" />
+        <img class="trans_image" src="../image/11.jpg" />
+    </div>
+    <div id="transImageTrigger" class="trans_image_trigger">
+        <a href="#1">图片1</a>　<a href="#2">图片2</a>　<a href="#3">图片3</a>　<a href="#4">图片4</a>
+    </div>
+</div>
+<script>
+    const wrapper = document.getElementsByClassName('wrapper')[0];
+    let num = 0;
+    wrapper.addEventListener('mouseenter', () => {
+        num++;
+        wrapper.style.transform = `rotateY(${num*90}deg)`;
+    })
+</script>
+<script src="a.js"></script>
+</body>
+</html>
